@@ -4,6 +4,6 @@
 
     <div class="col-xs-12">
       <h2><%= @post.title %></h2>
-      <h6>Author: <%= @post.author %> | <%= @post.updated_at.strftime("On %m/%d/%Y") %></h6>
+      <h6>Author: <%= @post.author %>, <%= @post.updated_at.strftime("on %m/%d/%Y") %></h6>
       <p><%= @post.content %></p>
     </div>
