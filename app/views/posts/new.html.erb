@@ -1,2 +1,30 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<div class="col-xs-12 ">
+  <%= link_to 'Back', posts_path, class: 'btn btn-default pull-right' %>
+</div>
+
+<div class="col-xs-12 ">
+  <h1>New Post</h1>
+
+  <%= form_for @post do |f| %>
+    
+    <div class="margin-half">
+      <%= f.label :title %>
+      <%= f.text_field :title, :required => 'required', class: 'form-control' %>
+    </div>
+
+    <div class="margin-half">
+      <%= f.label :author %>
+      <%= f.text_field :author, :required => 'required', class: 'form-control' %>
+    </div>
+
+    <div class="margin-half">
+      <%= f.label :content %>
+      <%= f.text_area :content, :required => 'required', class: 'form-control', rows: 10  %>
+    </div>
+
+    <div class="margin">
+      <%= f.submit 'Save post', class: 'btn btn-default' %>
+    </div>
+
+  <% end %>
+</div>
