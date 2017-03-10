@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Post.create([
-  {
-    author: 'name', 
-    title: 'Este es un título',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, voluptates, ea dolor ipsum delectus consequatur est eos voluptatum debitis in labore quam voluptatem numquam accusamus facilis quod amet velit officiis.'
-  }
+# Post.create([
+#   {
+#     author: 'name', 
+#     title: 'Este es un título',
+#     content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, voluptates, ea dolor ipsum delectus consequatur est eos voluptatum debitis in labore quam voluptatem numquam accusamus facilis quod amet velit officiis.'
+#   }
 
-  ])
+#   ])
