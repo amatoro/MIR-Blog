@@ -1,31 +1,18 @@
-<div class="col-xs-12 ">
-  <%= link_to 'Back', posts_path, class: 'btn btn-default pull-right' %>
+<div class="row">
+  <div class="col-xs-12 ">
+    <%= link_to 'Back', posts_path, class: 'btn btn-default pull-right' %>
+  </div>
 </div>
+
 
 <div class="row">
   <div class="col-xs-12">
   <h1>Edit Post</h1>
 
-  <%= form_for @post do |f| %>
-    <div class="margin-half">
-      <%= f.label :author %>
-      <%= f.text_field :author, class: 'form-control' %>
-    </div>
 
-    <div class="margin-half">
-      <%= f.label :title %>
-      <%= f.text_field :title, class: 'form-control' %>
-    </div>
+  <%= render 'form', action: 'Editar post' %>
 
-    <div class="margin-half">
-      <%= f.label :content %>
-      <%= f.text_area :content, class: 'form-control', rows: 10  %>
-    </div>
+<!-- render :partial => 'form', :locals => {:action => "Edit post"} #Es otra manera de hacerlo-->
 
-    <div class="margin">
-      <%= f.submit 'Edit post', class: 'btn btn-default' %>
-    </div>
-  <% end %>
-    
   </div>
 </div>

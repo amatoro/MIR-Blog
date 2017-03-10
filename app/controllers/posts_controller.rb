@@ -21,18 +21,29 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    #flash.notice = "Post '#{@post.title}' Updated!"
+    if @post.update(post_params)
+      redirect_to post_path(@post)
+    else
+      render "edit"
+    end
+    
     redirect_to post_path(@post)
   end
 
   def destroy
-    @post = Post.delete(params[:id])
+    #@post = Post.find(params[:id])
+    #@post.destroy
+
+    @post = Post.delete(params[:id]) #No ejecuta callbacks 
     redirect_to posts_path
   end
 
   def show
     @post = Post.find(params[:id])
+
+    #Comments
+    @comment = Comment.new
+    @comment.post_id = @post.id
   end
 
   def index

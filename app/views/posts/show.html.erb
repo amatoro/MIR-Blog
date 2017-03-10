@@ -1,9 +1,31 @@
+  <div class="row">
     <div class="col-xs-12 ">
       <%= link_to 'Back', posts_path, class: 'btn btn-default pull-right' %>
     </div>
+  </div>
 
+  <div class="row">
     <div class="col-xs-12">
       <h2><%= @post.title %></h2>
-      <h6>Author: <%= @post.author %>, <%= @post.updated_at.strftime("on %m/%d/%Y") %></h6>
+      <h5>Author: <%= @post.author %>, <%= @post.updated_at.strftime("on %m/%d/%Y") %></h5>
       <p><%= @post.content %></p>
     </div>
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Comments</h3>
+
+      <div class="margin">
+        <%= render partial: 'comment', collection: @post.comments.reverse %>
+      </div>
+
+      <div class="margin">
+        <%= render partial: 'comments/form' %>
+      </div>
+      
+    </div>
+  </div>
