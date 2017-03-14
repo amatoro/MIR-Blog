@@ -8,8 +8,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
+      flash[:notice] = "El post ha sido creado con éxito"
       redirect_to posts_path
     else
+      flash[:alert] = "Oh, oh! El post no ha sido creado con éxito"
       render :new
     end
 
@@ -22,19 +24,23 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
+      flash[:notice] = "El post ha sido actualizado con éxito"
       redirect_to post_path(@post)
     else
-      render "edit"
+      flash[:alert] = "Oh, oh! El post no ha sido actualizado con éxito"
+      render :edit
     end
     
     redirect_to post_path(@post)
   end
 
   def destroy
-    #@post = Post.find(params[:id])
-    #@post.destroy
 
-    @post = Post.delete(params[:id]) #No ejecuta callbacks 
+    #@post = Post.delete(params[:id]) #No ejecuta callbacks  
+
+    @post = Post.find(params[:id])
+    @post.destroy
+    flash[:alert] = "El post ha sido eliminado con éxito"
     redirect_to posts_path
   end
 
