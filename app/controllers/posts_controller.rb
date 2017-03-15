@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :is_admin?, only: [:new, :create, :edit, :update, :destroy]
 
   def new
     @post = Post.new
@@ -52,7 +52,7 @@ class PostsController < ApplicationController
 
     #Comments
     @comment = Comment.new
-    @comment.post_id = @post.id
+    @post.comments  
   end
 
   def index
@@ -63,5 +63,14 @@ class PostsController < ApplicationController
 
   def post_params #Seguridad para que el usuario no pueda enviar más información de la requerida
     params.require(:post).permit(:author, :title, :content)
+  end
+
+
+  def is_admin?
+    unless current_user.admin?
+      flash[:alert] = "No tienes permisos para ejecutar esta acción"
+      redirect_to root_path
+
+    end
   end
 end

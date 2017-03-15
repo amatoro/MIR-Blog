@@ -1,19 +1,19 @@
 <div class="row">
   <div class="col-xs-12">
     <h1>New Comment</h1>
-    <%= form_for [ @post, @comment ] do |f| %>
+    <%= form_for([ @post, @comment ]) do |f| %>
 
-    <div class="margin-half">
+    <div class="form-group">
       <%= f.label :author %>
       <%= f.text_field :author, :required => 'required', class: 'form-control' %>
     </div>
 
-    <div class="margin-half">
+    <div class="form-group">
       <%= f.label :body, 'Comment' %>
       <%= f.text_area :body, :required => 'required', class: 'form-control', rows: 10  %>
     </div>
 
-    <div class="margin">
+    <div class="form-group">
       <%= f.submit 'Send comment', class: 'btn btn-default' %>
     </div>
 
