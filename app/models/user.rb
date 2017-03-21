@@ -31,4 +31,5 @@ class User < ApplicationRecord
   def set_default_role
     self.role = 1
   end
+
 end
