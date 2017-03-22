@@ -26,10 +26,16 @@ class User < ApplicationRecord
 
   enum role: [:admin, :blogger]
 
-  before_save :set_default_role
+  before_create :set_default_role
+  after_create :send_welcome_email
 
   def set_default_role
     self.role = 1
+    # self.role = :blogger
+  end
+
+  def set_welcome_email
+    UserNotifierMailer.welcome_user(self).deliver_now
   end
 
 end
