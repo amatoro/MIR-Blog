@@ -34,7 +34,7 @@ class User < ApplicationRecord
     # self.role = :blogger
   end
 
-  def set_welcome_email
+  def send_welcome_email
     UserNotifierMailer.welcome_user(self).deliver_now
   end
 
