@@ -6,7 +6,7 @@ class UserNotifierMailer < ApplicationMailer
     @user = user
     @url = 'https://mir-blog.herokuapp.com'
 
-    mail(to: @user.mail, subject: 'Bienvenido al blog de MIR')
+    mail(to: @user.email, subject: 'Bienvenido al blog de MIR')
   end
 
   def new_post_mail(user, post)
