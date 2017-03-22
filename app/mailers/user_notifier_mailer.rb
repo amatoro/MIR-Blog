@@ -1,11 +1,11 @@
 class UserNotifierMailer < ApplicationMailer
 
-  default from: 'info@mir-blog.com'
+  default from: 'info@mir-blog.herokuapp.com'
 
   def welcome_user(user)
     @user = user
     @url = 'https://mir-blog.herokuapp.com'
-    
+
     mail(to: @user.mail, subject: 'Bienvenido al blog de MIR')
   end
 
